@@ -1,4 +1,8 @@
 package com.foro.api.model;
 
-public class StatusTopico {
+public enum StatusTopico {
+    NO_RESPONDIDO,
+    NO_SOLUCIONADO,
+    SOLUCIONADO,
+    CERRADO
 }
