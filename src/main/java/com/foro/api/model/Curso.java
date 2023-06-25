@@ -1,18 +1,20 @@
 package com.foro.api.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import com.foro.api.dto.CursoDTO;
+import jakarta.persistence.Embeddable;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Embeddable
 @NoArgsConstructor
-@AllArgsConstructor
 public class Curso {
-    private Long id;
+    //private Long id;
 
-    private String nombre;
+    private String curso;
 
     private String categoria;
+
+    public Curso(CursoDTO cursoDTO) {
+        this.curso = cursoDTO.curso();
+        this.categoria = cursoDTO.categoria();
+    }
 }
