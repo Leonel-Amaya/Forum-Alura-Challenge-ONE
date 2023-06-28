@@ -1,20 +1,27 @@
 package com.foro.api.model;
 
-import com.foro.api.dto.UsuarioDTO;
-import jakarta.persistence.Embeddable;
+import com.foro.api.dto.users.UsuarioDTO;
+import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Embeddable
+@Entity(name = "Usuario")
+@Table(name = "usuarios1")
+@Getter
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Usuario {
-    //private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nombre;
     private String email;
-    //private String contrasena;
-
+    private String contrasena;
 
     public Usuario(UsuarioDTO usuarioDTO) {
         this.nombre = usuarioDTO.nombre();
         this.email = usuarioDTO.email();
+        this.contrasena = usuarioDTO.contrasena();
     }
 }

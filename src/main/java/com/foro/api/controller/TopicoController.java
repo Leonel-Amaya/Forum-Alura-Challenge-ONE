@@ -1,6 +1,6 @@
 package com.foro.api.controller;
 
-import com.foro.api.dto.DatosRegistroTopico;
+import com.foro.api.dto.topics.DatosRegistroTopico;
 import com.foro.api.model.Topico;
 import com.foro.api.repository.TopicoRepo;
 import org.springframework.beans.factory.annotation.Autowired;

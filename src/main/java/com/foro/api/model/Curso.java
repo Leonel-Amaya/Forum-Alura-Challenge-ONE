@@ -1,13 +1,21 @@
 package com.foro.api.model;
 
-import com.foro.api.dto.CursoDTO;
-import jakarta.persistence.Embeddable;
+import com.foro.api.dto.courses.CursoDTO;
+import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Embeddable
+@Entity(name="Curso")
+@Table(name="cursos1")
+@Getter
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Curso {
-    //private Long id;
+
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private Long id;
 
     private String curso;
 

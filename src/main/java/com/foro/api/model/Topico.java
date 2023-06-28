@@ -1,14 +1,12 @@
 package com.foro.api.model;
 
-import com.foro.api.dto.DatosRegistroTopico;
+import com.foro.api.dto.topics.DatosRegistroTopico;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity(name="Topico")
 @Table(name="topicos1")
@@ -27,17 +25,19 @@ public class Topico {
     @Enumerated(EnumType.STRING)
     private StatusTopico estatus = StatusTopico.NO_SOLUCIONADO;
 
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "id_autor")
     private Usuario autor;
 
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "id_curso")
     private Curso curso;
     //private List<Respuesta> respuestas = new ArrayList<>();
 
     public Topico(DatosRegistroTopico datosTopico) {
         this.titulo = datosTopico.titulo();
         this.mensaje = datosTopico.mensaje();
-        this.autor = new Usuario(datosTopico.autor());
-        this.curso = new Curso(datosTopico.curso());
+//        this.autor = new Usuario(datosTopico.autor());
+//        this.curso = new Curso(datosTopico.curso());
     }
 }
