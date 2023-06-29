@@ -34,10 +34,10 @@ public class Topico {
     private Curso curso;
     //private List<Respuesta> respuestas = new ArrayList<>();
 
-    public Topico(DatosRegistroTopico datosTopico) {
+    public Topico(DatosRegistroTopico datosTopico, Usuario usuario, Curso curso) {
         this.titulo = datosTopico.titulo();
         this.mensaje = datosTopico.mensaje();
-//        this.autor = new Usuario(datosTopico.autor());
-//        this.curso = new Curso(datosTopico.curso());
+        this.autor = usuario;
+        this.curso = curso;
     }
 }
