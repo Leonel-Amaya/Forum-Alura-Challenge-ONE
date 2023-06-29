@@ -1,5 +1,6 @@
 package com.foro.api.controller;
 
+import com.foro.api.dto.topics.DatosListadoTopico;
 import com.foro.api.dto.topics.DatosRegistroTopico;
 import com.foro.api.model.Curso;
 import com.foro.api.model.Topico;
@@ -8,10 +9,9 @@ import com.foro.api.repository.CursoRepo;
 import com.foro.api.repository.TopicoRepo;
 import com.foro.api.repository.UsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/topicos")
@@ -42,4 +42,8 @@ public class TopicoController {
         Topico topico = topicoRepo.save(new Topico(datosRegistro, usuario, curso));
     }
 
+    @GetMapping
+    public Page<DatosListadoTopico> listarTopicos(Pageable paginacion) {
+        return topicoRepo.findAll(paginacion).map(DatosListadoTopico::new);
+    }
 }

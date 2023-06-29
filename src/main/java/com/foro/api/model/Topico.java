@@ -26,7 +26,7 @@ public class Topico {
     private StatusTopico estatus = StatusTopico.NO_SOLUCIONADO;
 
     @ManyToOne
-    @JoinColumn(name = "id_autor")
+    @JoinColumn(name = "id_usuario")
     private Usuario autor;
 
     @ManyToOne
