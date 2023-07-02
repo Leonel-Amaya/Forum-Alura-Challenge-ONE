@@ -1,5 +1,6 @@
 package com.foro.api.controller;
 
+import com.foro.api.dto.topics.DatosDetallarTopico;
 import com.foro.api.dto.topics.DatosListadoTopico;
 import com.foro.api.dto.topics.DatosRegistroTopico;
 import com.foro.api.model.Curso;
@@ -11,6 +12,7 @@ import com.foro.api.repository.UsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -45,5 +47,11 @@ public class TopicoController {
     @GetMapping
     public Page<DatosListadoTopico> listarTopicos(Pageable paginacion) {
         return topicoRepo.findAll(paginacion).map(DatosListadoTopico::new);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosDetallarTopico> detallarTopico(@PathVariable Long id) {
+        var topico = topicoRepo.getReferenceById(id);
+        return ResponseEntity.ok(new DatosDetallarTopico(topico));
     }
 }
