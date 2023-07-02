@@ -9,6 +9,7 @@ import com.foro.api.model.Usuario;
 import com.foro.api.repository.CursoRepo;
 import com.foro.api.repository.TopicoRepo;
 import com.foro.api.repository.UsuarioRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -56,6 +57,7 @@ public class TopicoController {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity eliminarTopico(@PathVariable Long id) {
         Topico topico = topicoRepo.getReferenceById(id);
         topicoRepo.delete(topico);
