@@ -1,5 +1,6 @@
 package com.foro.api.controller;
 
+import com.foro.api.dto.topics.DatosActualizarTopico;
 import com.foro.api.dto.topics.DatosDetallarTopico;
 import com.foro.api.dto.topics.DatosListadoTopico;
 import com.foro.api.dto.topics.DatosRegistroTopico;
@@ -15,6 +16,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/topicos")
@@ -34,20 +38,20 @@ public class TopicoController {
     Todos son obligatorios
     No se permite registros duplicados (mismo título ni mensaje)
      */
-
-    //Método que recibe los nuevos tópicos creados
     @PostMapping
-    public void nuevoTopico(@RequestBody DatosRegistroTopico datosRegistro) {
-        System.out.println("Creando nuevo tópico");
-        System.out.println(datosRegistro);
+    public ResponseEntity<DatosDetallarTopico> nuevoTopico(@RequestBody DatosRegistroTopico datosRegistro, UriComponentsBuilder uriComponentsBuilder) {
         Usuario usuario = usuarioRepo.findById(datosRegistro.id_usuario()).orElseThrow();
         Curso curso = cursoRepo.findById(datosRegistro.id_curso()).orElseThrow();
         Topico topico = topicoRepo.save(new Topico(datosRegistro, usuario, curso));
+        DatosDetallarTopico datosDetallarTopico = new DatosDetallarTopico(topico);
+
+        URI url = uriComponentsBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
+        return ResponseEntity.created(url).body(datosDetallarTopico);
     }
 
     @GetMapping
-    public Page<DatosListadoTopico> listarTopicos(Pageable paginacion) {
-        return topicoRepo.findAll(paginacion).map(DatosListadoTopico::new);
+    public ResponseEntity<Page<DatosListadoTopico>> listarTopicos(Pageable paginacion) {
+        return ResponseEntity.ok(topicoRepo.findAll(paginacion).map(DatosListadoTopico::new));
     }
 
     @GetMapping("/{id}")
@@ -62,5 +66,13 @@ public class TopicoController {
         Topico topico = topicoRepo.getReferenceById(id);
         topicoRepo.delete(topico);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity actualizarTopico(@RequestBody DatosActualizarTopico datosActualizar) {
+        Topico topico = topicoRepo.getReferenceById(datosActualizar.id_topico());
+        topico.actualizar(datosActualizar);
+        return ResponseEntity.ok(new DatosDetallarTopico(topico));
     }
 }

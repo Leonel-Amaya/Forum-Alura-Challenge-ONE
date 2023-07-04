@@ -1,5 +1,6 @@
 package com.foro.api.model;
 
+import com.foro.api.dto.topics.DatosActualizarTopico;
 import com.foro.api.dto.topics.DatosRegistroTopico;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
@@ -39,5 +40,17 @@ public class Topico {
         this.mensaje = datosTopico.mensaje();
         this.autor = usuario;
         this.curso = curso;
+    }
+
+    public void actualizar(DatosActualizarTopico datosActualizar){
+        if(datosActualizar.titulo() != null) {
+            this.titulo = datosActualizar.titulo();
+        }
+        if (datosActualizar.mensaje() != null) {
+            this.mensaje = datosActualizar.mensaje();
+        }
+        if (datosActualizar.estatus() != null) {
+            this.estatus = datosActualizar.estatus();
+        }
     }
 }
