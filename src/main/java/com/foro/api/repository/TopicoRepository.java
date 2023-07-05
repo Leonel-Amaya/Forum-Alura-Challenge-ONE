@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface TopicoRepo extends JpaRepository<Topico, Long> {
+public interface TopicoRepository extends JpaRepository<Topico, Long> {
     @Override
     Optional<Topico> findById(Long id);
 }

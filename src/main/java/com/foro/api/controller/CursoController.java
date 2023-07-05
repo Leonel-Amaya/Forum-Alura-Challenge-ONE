@@ -2,7 +2,7 @@ package com.foro.api.controller;
 
 import com.foro.api.dto.courses.CursoDTO;
 import com.foro.api.model.Curso;
-import com.foro.api.repository.CursoRepo;
+import com.foro.api.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CursoController {
 
     @Autowired
-    private CursoRepo cursoRepo;
+    private CursoRepository cursoRepo;
 
     @PostMapping
     public void registrarCurso(@RequestBody CursoDTO cursoDTO) {

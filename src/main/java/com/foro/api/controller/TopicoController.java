@@ -7,9 +7,9 @@ import com.foro.api.dto.topics.DatosRegistroTopico;
 import com.foro.api.model.Curso;
 import com.foro.api.model.Topico;
 import com.foro.api.model.Usuario;
-import com.foro.api.repository.CursoRepo;
-import com.foro.api.repository.TopicoRepo;
-import com.foro.api.repository.UsuarioRepo;
+import com.foro.api.repository.CursoRepository;
+import com.foro.api.repository.TopicoRepository;
+import com.foro.api.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,13 +25,13 @@ import java.net.URI;
 public class TopicoController {
 
     @Autowired
-    private TopicoRepo topicoRepo;
+    private TopicoRepository topicoRepo;
 
     @Autowired
-    private UsuarioRepo usuarioRepo;
+    private UsuarioRepository usuarioRepo;
 
     @Autowired
-    private CursoRepo cursoRepo;
+    private CursoRepository cursoRepo;
 
     /*
     Los tópicos deben tener los siguientes datos (título, mensaje, autor y curso)
