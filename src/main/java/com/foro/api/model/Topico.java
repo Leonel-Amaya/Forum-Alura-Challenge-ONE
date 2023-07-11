@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name="Topico")
 @Table(name="topicos1")
@@ -33,7 +34,9 @@ public class Topico {
     @ManyToOne
     @JoinColumn(name = "id_curso")
     private Curso curso;
-    //private List<Respuesta> respuestas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "topico")
+    private List<Respuesta> respuestas;
 
     public Topico(DatosRegistroTopico datosTopico, Usuario usuario, Curso curso) {
         this.titulo = datosTopico.titulo();

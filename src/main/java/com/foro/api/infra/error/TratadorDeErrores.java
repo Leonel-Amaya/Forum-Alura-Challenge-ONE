@@ -17,7 +17,7 @@ public class TratadorDeErrores {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity tratarError400(MethodArgumentNotValidException e) {
-        var errores =   e.getFieldErrors().stream().map(DatosErrorValidacion::new).toList();
+        var errores = e.getFieldErrors().stream().map(DatosErrorValidacion::new).toList();
         return ResponseEntity.badRequest().body(errores);
     }
 
