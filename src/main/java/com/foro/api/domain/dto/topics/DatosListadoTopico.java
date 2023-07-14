@@ -1,7 +1,7 @@
-package com.foro.api.dto.topics;
+package com.foro.api.domain.dto.topics;
 
-import com.foro.api.model.StatusTopico;
-import com.foro.api.model.Topico;
+import com.foro.api.domain.model.StatusTopico;
+import com.foro.api.domain.model.Topico;
 
 public record DatosListadoTopico(String titulo, String mensaje, String fecha, StatusTopico estatus, String autor, String curso) {
 

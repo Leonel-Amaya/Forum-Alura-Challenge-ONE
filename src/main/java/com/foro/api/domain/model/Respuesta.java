@@ -1,4 +1,4 @@
-package com.foro.api.model;
+package com.foro.api.domain.model;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;

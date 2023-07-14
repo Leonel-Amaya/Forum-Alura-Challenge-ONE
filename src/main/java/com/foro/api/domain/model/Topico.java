@@ -1,7 +1,7 @@
-package com.foro.api.model;
+package com.foro.api.domain.model;
 
-import com.foro.api.dto.topics.DatosActualizarTopico;
-import com.foro.api.dto.topics.DatosRegistroTopico;
+import com.foro.api.domain.dto.topics.DatosActualizarTopico;
+import com.foro.api.domain.dto.topics.DatosRegistroTopico;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

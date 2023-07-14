@@ -1,8 +1,8 @@
 package com.foro.api.controller;
 
-import com.foro.api.dto.courses.CursoDTO;
-import com.foro.api.model.Curso;
-import com.foro.api.repository.CursoRepository;
+import com.foro.api.domain.dto.courses.CursoDTO;
+import com.foro.api.domain.model.Curso;
+import com.foro.api.domain.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

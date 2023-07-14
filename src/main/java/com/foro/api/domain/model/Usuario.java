@@ -1,6 +1,6 @@
-package com.foro.api.model;
+package com.foro.api.domain.model;
 
-import com.foro.api.dto.users.UsuarioDTO;
+import com.foro.api.domain.dto.users.UsuarioDTO;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

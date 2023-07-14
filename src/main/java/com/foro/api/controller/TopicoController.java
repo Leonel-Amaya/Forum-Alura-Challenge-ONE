@@ -1,15 +1,15 @@
 package com.foro.api.controller;
 
-import com.foro.api.dto.topics.DatosActualizarTopico;
-import com.foro.api.dto.topics.DatosDetallarTopico;
-import com.foro.api.dto.topics.DatosListadoTopico;
-import com.foro.api.dto.topics.DatosRegistroTopico;
-import com.foro.api.model.Curso;
-import com.foro.api.model.Topico;
-import com.foro.api.model.Usuario;
-import com.foro.api.repository.CursoRepository;
-import com.foro.api.repository.TopicoRepository;
-import com.foro.api.repository.UsuarioRepository;
+import com.foro.api.domain.dto.topics.DatosActualizarTopico;
+import com.foro.api.domain.dto.topics.DatosDetallarTopico;
+import com.foro.api.domain.dto.topics.DatosListadoTopico;
+import com.foro.api.domain.dto.topics.DatosRegistroTopico;
+import com.foro.api.domain.model.Curso;
+import com.foro.api.domain.model.Topico;
+import com.foro.api.domain.model.Usuario;
+import com.foro.api.domain.repository.CursoRepository;
+import com.foro.api.domain.repository.TopicoRepository;
+import com.foro.api.domain.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

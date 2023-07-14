@@ -1,4 +1,4 @@
-package com.foro.api.model;
+package com.foro.api.domain.model;
 
 public enum StatusTopico {
     NO_RESPONDIDO,

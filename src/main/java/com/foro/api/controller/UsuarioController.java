@@ -1,8 +1,8 @@
 package com.foro.api.controller;
 
-import com.foro.api.dto.users.UsuarioDTO;
-import com.foro.api.model.Usuario;
-import com.foro.api.repository.UsuarioRepository;
+import com.foro.api.domain.dto.users.UsuarioDTO;
+import com.foro.api.domain.model.Usuario;
+import com.foro.api.domain.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

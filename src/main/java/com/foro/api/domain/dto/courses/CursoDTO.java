@@ -1,4 +1,4 @@
-package com.foro.api.dto.courses;
+package com.foro.api.domain.dto.courses;
 
 public record CursoDTO(String curso, String categoria) {
 }
