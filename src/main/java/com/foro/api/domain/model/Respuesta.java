@@ -1,5 +1,7 @@
 package com.foro.api.domain.model;
 
+import com.foro.api.domain.dto.respuestas.DatosActualizarRespuesta;
+import com.foro.api.domain.dto.respuestas.DatosRegistroRespuesta;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -8,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity(name="Respuesta")
-@Table(name = "respuestas1")
+@Table(name = "respuestas2")
 @Getter
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -26,7 +28,20 @@ public class Respuesta {
     private LocalDateTime fechaCreacion = LocalDateTime.now();
 
     @ManyToOne
-    @JoinColumn(name = "id_autor")
+    @JoinColumn(name = "id_usuario")
     private Usuario autor;
     //private Boolean solucion = false;
+
+
+    public Respuesta(DatosRegistroRespuesta datosRegistroRespuesta, Topico topico, Usuario usuario) {
+        this.mensaje = datosRegistroRespuesta.mensaje();
+        this.topico = topico;
+        this.autor = usuario;
+    }
+
+    public void actualizar(DatosActualizarRespuesta datosActualizarRespuesta) {
+        if (datosActualizarRespuesta.mensaje() != null) {
+            this.mensaje = datosActualizarRespuesta.mensaje();
+        }
+    }
 }
