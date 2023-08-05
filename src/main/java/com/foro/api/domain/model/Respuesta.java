@@ -1,5 +1,6 @@
 package com.foro.api.domain.model;
 
+import com.foro.api.domain.dto.respuestas.DatosActualizarRespuesta;
 import com.foro.api.domain.dto.respuestas.DatosRegistroRespuesta;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
@@ -36,5 +37,11 @@ public class Respuesta {
         this.mensaje = datosRegistroRespuesta.mensaje();
         this.topico = topico;
         this.autor = usuario;
+    }
+
+    public void actualizar(DatosActualizarRespuesta datosActualizarRespuesta) {
+        if (datosActualizarRespuesta.mensaje() != null) {
+            this.mensaje = datosActualizarRespuesta.mensaje();
+        }
     }
 }

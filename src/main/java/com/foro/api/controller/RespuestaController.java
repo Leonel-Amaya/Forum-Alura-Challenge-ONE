@@ -1,5 +1,6 @@
 package com.foro.api.controller;
 
+import com.foro.api.domain.dto.respuestas.DatosActualizarRespuesta;
 import com.foro.api.domain.dto.respuestas.DatosListadoRespuesta;
 import com.foro.api.domain.dto.respuestas.DatosRegistroRespuesta;
 import com.foro.api.domain.dto.respuestas.DetallarRespuesta;
@@ -9,6 +10,7 @@ import com.foro.api.domain.model.Usuario;
 import com.foro.api.domain.repository.RespuestaRepository;
 import com.foro.api.domain.repository.TopicoRepository;
 import com.foro.api.domain.repository.UsuarioRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -46,6 +48,22 @@ public class RespuestaController {
     public ResponseEntity<DetallarRespuesta> detallarRespuesta(@PathVariable Long id) {
         var respuesta = respuestaRepository.getReferenceById(id);
         return ResponseEntity.ok(new DetallarRespuesta(respuesta));
+    }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity actualizarRespuesta(@RequestBody DatosActualizarRespuesta datosActualizarRespuesta) {
+        Respuesta respuesta = respuestaRepository.getReferenceById(datosActualizarRespuesta.id_respuesta());
+        respuesta.actualizar(datosActualizarRespuesta);
+        return ResponseEntity.ok(new DetallarRespuesta(respuesta));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity eliminarRespuesta(@PathVariable Long id) {
+        Respuesta respuesta = respuestaRepository.getReferenceById(id);
+        respuestaRepository.delete(respuesta);
+        return ResponseEntity.noContent().build();
     }
 
 }
