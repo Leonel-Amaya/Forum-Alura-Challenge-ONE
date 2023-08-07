@@ -4,7 +4,6 @@ spring:
     url: jdbc:mysql://localhost/prueba_foro
     username: root
     password: 6818titanium
-
   jpa:
     show-sql: true
     properties:
@@ -14,3 +13,11 @@ spring:
   output:
     ansi:
       enabled: always
+
+server:
+  error:
+    include-stacktrace: never
+
+api:
+  security:
+    secret: ${JWT_SECRET:prueba123}
