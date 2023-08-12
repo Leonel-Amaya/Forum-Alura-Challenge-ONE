@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity(name="Respuesta")
-@Table(name = "respuestas2")
+@Table(name = "respuestas")
 @Getter
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")

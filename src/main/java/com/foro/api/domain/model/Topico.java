@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity(name="Topico")
-@Table(name="topicos1")
+@Table(name="topicos")
 @Getter
 @NoArgsConstructor
 @EqualsAndHashCode(of="id")

@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity(name = "Usuario")
-@Table(name = "usuarios1")
+@Table(name = "usuarios")
 @Getter
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
