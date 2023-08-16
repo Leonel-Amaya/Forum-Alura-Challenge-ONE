@@ -27,12 +27,18 @@ Nuestra API va a centrarse específicamente en los tópicos, y debe permitir a l
 
 Se desarrolló una API RESTful con conexión a la base de datos utilizando métodos Http (GET, POST, PUT, DELETE) que permite realizar acciones CRUD (Create, Read, Update, Delete). Se dío uso a Status Code para manejar las respuestas por parte del servidor al cliente.
 
-Inicialmente se solicitaba acciones sobore los tópicos haciendo uso de la ruta `/topicos`. Adicionalmente, se implementaron otros endpoints relacionados a los tópicos lo cual permitía tener una mejor estructuración del foro:
+Inicialmente se solicitaba acciones sobre los tópicos haciendo uso de la ruta `/topicos`. Adicionalmente, se implementaron otros endpoints relacionados a los tópicos lo cual permitía tener una mejor estructuración del foro:
 
 - `/respuestas`
 - `/usuarios`
 
 Añadiendo la capa de seguridad, se implementó un servicio de autenticación y autorización el cual se debe realizar haciendo uso de la ruta `/login`. Para esto se debe contar con el email y contraseña correctas.
+
+## Funcionalidades
+
+Se desplegó el prototipo de la API en la nube de Microsoft Azure para que se pueda probar. Puede hacerlo usando el siguiente [enlace](https://foro-aluraapi.azurewebsites.net/) y una herramienta para testing de APIs como Postman o Insomnia.
+
+
 
 ## Base de datos
 
@@ -41,8 +47,6 @@ El Diagrama de Entidad Relación de la  base de datos es la siguiente:
 <p align="center" dir="auto">
 <img align="center" src="https://github.com/Leonel-Amaya/Forum-Alura-Challenge-ONE/blob/main/imgs/db.png?raw=true" width="70%">
 </p>
-
-### Funcionalidades
 
 ## Tecnologías
 
